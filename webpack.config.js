@@ -10,9 +10,11 @@ var babelPresets = {presets: ['react', 'es2015']};
 
 module.exports = {
   // the entry point that webpack will use to start its search for dependencies, set to reflect the 'main' property in package.json
+  entry:  [
   'webpack-dev-server/client?http://127.0.0.1:8080',
   'webpack/hot/only-dev-server',
-  entry: path.resolve(__dirname, packageData.main),
+  path.resolve(__dirname, packageData.main)
+  ],
   output: {
     // saving the bundled javaScript file into the 'build' directory using the 'name' and 'version number' from the package.json
     path: path.resolve(__dirname, 'build'),
