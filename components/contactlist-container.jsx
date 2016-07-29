@@ -19,6 +19,7 @@ var CONTACTS = {
     }
 };
 
+// Container component that injects the constant 'CONTACTS' obj as a prop into 'ContactList'
 var ContactListContainer = function() {
     return <ContactList contacts={CONTACTS} />;
 };
