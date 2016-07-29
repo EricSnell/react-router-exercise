@@ -6,8 +6,12 @@ var packageData = require('./package.json');
 
 var filename = [packageData.name, packageData.version, 'js'];
 
+var babelPresets = {presets: ['react', 'es2015']};
+
 module.exports = {
   // the entry point that webpack will use to start its search for dependencies, set to reflect the 'main' property in package.json
+  'webpack-dev-server/client?http://127.0.0.1:8080',
+  'webpack/hot/only-dev-server',
   entry: path.resolve(__dirname, packageData.main),
   output: {
     // saving the bundled javaScript file into the 'build' directory using the 'name' and 'version number' from the package.json
@@ -23,10 +27,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        loaders: ['react-hot', 'babel-loader?'+JSON.stringify(babelPresets)]
       }
     ]
   },
