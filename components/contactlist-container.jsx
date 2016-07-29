@@ -23,4 +23,5 @@ var ContactListContainer = function() {
     return <ContactList contacts={CONTACTS} />;
 };
 
-module.exports = ContactListContainer;
+exports.ContactListContainer = ContactListContainer;
+exports.CONTACTS = CONTACTS;
